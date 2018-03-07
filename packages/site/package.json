@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@blueprintjs/table": "^2.0.0-rc.2",
     "apollo-boost": "^0.1.2",
     "graphql": "^0.13.1",
     "husky": "^0.14.3",
@@ -13,7 +14,9 @@
     "react-apollo": "beta",
     "react-dom": "^16.2.0",
     "react-graph-vis": "^1.0.2",
-    "react-scripts": "1.1.1"
+    "react-grid-layout": "^0.16.5",
+    "react-scripts": "1.1.1",
+    "react-transition-group": "^2.2.1"
   },
   "scripts": {
     "precommit": "lint-staged",
