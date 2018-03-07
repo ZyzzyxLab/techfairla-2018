@@ -1,94 +1,34 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
-import logo from './logo.svg';
 import './App.css';
 
-import { gql } from 'apollo-boost';
-import { Query } from 'react-apollo';
-import moment from 'moment';
+import { Route, Switch } from 'react-router-dom';
 
-const DATE_FORMAT = 'dddd, MMMM Do YYYY, h:mm:ss a';
+// import { gql } from 'apollo-boost';
+// import { Query } from 'react-apollo';
+// import moment from 'moment';
 
-const GET_DOGS = gql`
-  query {
-    dogs {
-      id
-      breed
-      displayImage
-    }
-  }
-`;
+import Header from './components/Header';
+import Project from './views/ProjectView';
+import Login from './views/LoginView';
+import ApolloExample from './views/ApolloExample';
 
-const GET_USERS = gql`
-  query {
-    allUsers {
-      id
-      name
-      createdAt
-      updatedAt
-    }
-  }
-`;
-
-const Dog = ({ id, breed, displayImage }) => (
-  <div>
-    <h3>{breed}</h3>
-    <img src={displayImage} alt={breed} />
-  </div>
+const Home = () => (
+  <p className="App-intro">
+    To get started, edit <code>src/App.js</code> and save to reload.
+  </p>
 );
-Dog.propTypes = {
-  id: propTypes.string.isRequired,
-  breed: propTypes.string.isRequired,
-  displayImage: propTypes.string
-};
-
-const User = ({ id, name, createdAt, updatedAt }) => (
-  <div>
-    <h2>{name}</h2>
-    <p>
-      <span>created: {moment(createdAt).format(DATE_FORMAT)}</span>
-      <br />
-      <span>updated: {moment(updatedAt).format(DATE_FORMAT)}</span>
-    </p>
-  </div>
-);
-User.propTypes = {
-  id: propTypes.string.isRequired,
-  name: propTypes.string.isRequired,
-  createdAt: propTypes.instanceOf(Date),
-  updatedAt: propTypes.instanceOf(Date)
-};
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Example using GraphQL's `apollo-boost`<br />
-          <Query query={GET_USERS}>
-            {({ loading, error, data }) => {
-              if (loading) return <div>Loading...</div>;
-              if (error) return <div>Error :(</div>;
-
-              return (
-                <ul>
-                  {data.allUsers.map(user => (
-                    <li>
-                      <User {...user} />
-                    </li>
-                  ))}
-                </ul>
-              );
-            }}
-          </Query>
-        </p>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/project" component={Project} />
+          <Route path="/apollo-example" component={ApolloExample} />
+          <Route path="/login" component={Login} />
+        </Switch>
       </div>
     );
   }

@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import { BrowserRouter } from 'react-router-dom';
 
 const graphqlEndpoint =
   'https://api.graph.cool/simple/v1/cjehlau7e177o011135boojp8';
@@ -17,7 +18,9 @@ const client = new ApolloClient({
 
 const ApolloApp = () => (
   <ApolloProvider client={client}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </ApolloProvider>
 );
 
