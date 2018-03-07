@@ -32,7 +32,14 @@ class ProjectGraph extends React.Component {
         alert('clicked on taskID: ' + taskID);
       }
     };
-    return <Graph graph={this.state.graph} options={options} events={events} />;
+    return (
+      <Graph
+        graph={this.state.graph}
+        options={options}
+        events={events}
+        style={{ height: '1000px' }}
+      />
+    );
   }
 }
 
