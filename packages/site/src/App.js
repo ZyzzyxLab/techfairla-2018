@@ -5,6 +5,9 @@ import './App.css';
 
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
+import moment from 'moment';
+
+const DATE_FORMAT = 'dddd, MMMM Do YYYY, h:mm:ss a';
 
 const GET_DOGS = gql`
   query {
@@ -12,6 +15,17 @@ const GET_DOGS = gql`
       id
       breed
       displayImage
+    }
+  }
+`;
+
+const GET_USERS = gql`
+  query {
+    allUsers {
+      id
+      name
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -28,6 +42,23 @@ Dog.propTypes = {
   displayImage: propTypes.string
 };
 
+const User = ({ id, name, createdAt, updatedAt }) => (
+  <div>
+    <h2>{name}</h2>
+    <p>
+      <span>created: {moment(createdAt).format(DATE_FORMAT)}</span>
+      <br />
+      <span>updated: {moment(updatedAt).format(DATE_FORMAT)}</span>
+    </p>
+  </div>
+);
+User.propTypes = {
+  id: propTypes.string.isRequired,
+  name: propTypes.string.isRequired,
+  createdAt: propTypes.instanceOf(Date),
+  updatedAt: propTypes.instanceOf(Date)
+};
+
 class App extends Component {
   render() {
     return (
@@ -41,16 +72,16 @@ class App extends Component {
         </p>
         <p>
           Example using GraphQL's `apollo-boost`<br />
-          <Query query={GET_DOGS}>
+          <Query query={GET_USERS}>
             {({ loading, error, data }) => {
               if (loading) return <div>Loading...</div>;
               if (error) return <div>Error :(</div>;
 
               return (
                 <ul>
-                  {data.dogs.map(({ id, breed, displayImage }) => (
+                  {data.allUsers.map(user => (
                     <li>
-                      <Dog id={id} breed={breed} displayImage={displayImage} />
+                      <User {...user} />
                     </li>
                   ))}
                 </ul>
