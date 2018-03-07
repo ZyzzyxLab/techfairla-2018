@@ -60,9 +60,10 @@ class ProjectView extends Component {
               <h2> project info </h2>
               <p>blablabla </p>
               <p>
-                {' '}
-                We want to build this ting But u gotta sign an NDA if u wanna
-                know more.{' '}
+                <blockquote>
+                  We want to build this ting But u gotta sign an NDA if u wanna
+                  know more.
+                </blockquote>
               </p>
             </div>
           </div>
