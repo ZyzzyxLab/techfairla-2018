@@ -5,14 +5,12 @@ import propTypes from 'prop-types';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 
-
 //Get Task data from graphQL
 
-const GET.TASK = gql`
-  {
-    task {
-      //Whatever data
-    }
-  }
-`;
-
+// const GET_TASK = gql`
+//   {
+//     task {
+//       //Whatever data
+//     }
+//   }
+// `;
