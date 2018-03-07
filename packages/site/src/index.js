@@ -4,5 +4,19 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+
+// Pass your GraphQL endpoint to uri
+const client = new ApolloClient({
+  uri: 'https://nx9zvp49q7.lp.gql.zone/graphql'
+});
+
+const ApolloApp = () => (
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>
+);
+
+ReactDOM.render(<ApolloApp />, document.getElementById('root'));
 registerServiceWorker();
