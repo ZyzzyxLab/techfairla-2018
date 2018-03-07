@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Task from './views/Task';
 import registerServiceWorker from './registerServiceWorker';
 
 import ApolloClient from 'apollo-boost';
@@ -14,7 +14,7 @@ const client = new ApolloClient({
 
 const ApolloApp = () => (
   <ApolloProvider client={client}>
-    <App />
+    <Task />
   </ApolloProvider>
 );
 
