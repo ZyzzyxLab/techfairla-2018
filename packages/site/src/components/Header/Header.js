@@ -30,6 +30,9 @@ const Header = () => (
     <NavLink to="/marketplace" activeClassName="active-nav">
       marketplace
     </NavLink>
+    <NavLink to="/taskView" activeClassName="active-nav">
+      TaskView
+    </NavLink>
 
     <br />
 
