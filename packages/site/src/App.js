@@ -1,63 +1,34 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
-import logo from './logo.svg';
 import './App.css';
 
-import { gql } from 'apollo-boost';
-import { Query } from 'react-apollo';
+import { Route, Switch } from 'react-router-dom';
 
-const GET_DOGS = gql`
-  query {
-    dogs {
-      id
-      breed
-      displayImage
-    }
-  }
-`;
+// import { gql } from 'apollo-boost';
+// import { Query } from 'react-apollo';
+// import moment from 'moment';
 
-const Dog = ({ id, breed, displayImage }) => (
-  <div>
-    <h3>{breed}</h3>
-    <img src={displayImage} alt={breed} />
-  </div>
-);
-Dog.propTypes = {
-  id: propTypes.string.isRequired,
-  breed: propTypes.string.isRequired,
-  displayImage: propTypes.string
-};
+import Header from './components/Header';
+import TaskView from './views/TaskView';
+import Project from './views/ProjectView';
+import Login from './views/LoginView';
+import ApolloExample from './views/ApolloExample';
+import ProjectOwnerView from './views/ProjectOwnerView';
+const Home = () => <p className="App-intro">TechFair LA Hackathon Project</p>;
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Example using GraphQL's `apollo-boost`<br />
-          <Query query={GET_DOGS}>
-            {({ loading, error, data }) => {
-              if (loading) return <div>Loading...</div>;
-              if (error) return <div>Error :(</div>;
+        <Header />
 
-              return (
-                <ul>
-                  {data.dogs.map(({ id, breed, displayImage }) => (
-                    <li>
-                      <Dog id={id} breed={breed} displayImage={displayImage} />
-                    </li>
-                  ))}
-                </ul>
-              );
-            }}
-          </Query>
-        </p>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/project" component={Project} />
+          <Route path="/taskView" component={TaskView} />
+          <Route path="/projectOwnerView" component={ProjectOwnerView} />
+          <Route path="/apollo-example" component={ApolloExample} />
+          <Route path="/login" component={Login} />
+        </Switch>
       </div>
     );
   }

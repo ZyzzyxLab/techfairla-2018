@@ -9,3 +9,7 @@ nvm install
 lerna bootstrap
 ```
 
+Start the mongodb
+```sh
+docker-compose up -d
+```
