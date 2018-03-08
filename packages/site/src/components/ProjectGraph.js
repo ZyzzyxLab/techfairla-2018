@@ -1,21 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../index.css';
-var Graph = require('react-graph-vis');
-
+import Graph from 'react-graph-vis';
 
 class ProjectGraph extends React.Component {
   constructor(props) {
     super(props);
-    this.state.graph = {
-      nodes: this.props.nodes,
-      edges: this.props.edges
+    this.state = {
+      graph: {
+        nodes: this.props.nodes,
+        edges: this.props.edges
+      }
     };
   }
 
-  componentDidMount() {}
-
-  componentWillUnmount() {}
   render() {
     var options = {
       layout: {
