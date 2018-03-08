@@ -42,10 +42,6 @@ class ProjectOwnerView extends Component<{}, ICollapseExampleState> {
     ];
     return (
       <div>
-        <br />
-        <br />
-        <br />
-
         <h1> Project owner: Wilson J</h1>
 
         <ReactGridLayout

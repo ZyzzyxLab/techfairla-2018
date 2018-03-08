@@ -43,10 +43,6 @@ class ProjectView extends Component {
     ];
     return (
       <div>
-        <br />
-        <br />
-        <br />
-        <br />
         <h1>Wilson's project tree</h1>
 
         <ReactGridLayout
