@@ -13,7 +13,7 @@ const Header = () => (
       <font color="white">React</font>
     </h1>
 
-    <NavLink to="/" activeClassName="active-nav">
+    <NavLink to="/home" activeClassName="active-nav">
       Home
     </NavLink>
     <br />

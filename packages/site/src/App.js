@@ -13,6 +13,7 @@ import Project from './views/ProjectView';
 import Login from './views/LoginView';
 import ApolloExample from './views/ApolloExample';
 import ProjectOwnerView from './views/ProjectOwnerView';
+
 const Home = () => <p className="App-intro">TechFair LA Hackathon Project</p>;
 
 class App extends Component {
@@ -20,11 +21,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-
+        <br />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Login} />
           <Route path="/project" component={Project} />
-          <Route path="/taskView" component={TaskView} />
+          <Route path="/home" component={TaskView} />
           <Route path="/projectOwnerView" component={ProjectOwnerView} />
           <Route path="/apollo-example" component={ApolloExample} />
           <Route path="/login" component={Login} />
