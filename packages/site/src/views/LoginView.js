@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './LoginView.css';
 
 import { Route, Switch } from 'react-router-dom';
+import * as Blueprint from '@blueprintjs/core';
 
 // import { gql } from 'apollo-boost';
 // import { Query } from 'react-apollo';
@@ -16,13 +17,13 @@ const Home = () => (
 class Login extends Component {
   render() {
     return (
-      <nav className="pt-navbar">
-        <div className="pt-navbar-group pt-align-left">
-          <div className="pt-navbar-heading"> Login Buttons </div>
-          <button className="pt-button pt-minimal pt-icon-user"> </button>
-          <button className="pt-button pt-minimal pt-icon-cog"> </button>
-        </div>
-      </nav>
+      <div class="pt-navbar-group pt-align-left">
+        <div class="pt-navbar-heading"> Login Buttons </div>
+        <div class="pt-button pt-minimal pt-icon-user"> </div>
+        <div class="pt-button pt-minimal pt-icon-cog"> </div>
+        const anotherSpinner ={' '}
+        <Blueprint.Spinner intent={Blueprint.Intent.PRIMARY} />;
+      </div>
     );
   }
 }
