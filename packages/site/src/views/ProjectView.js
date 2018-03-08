@@ -9,8 +9,27 @@ import ReactGridLayout from 'react-grid-layout';
 class ProjectView extends Component {
   constructor(props) {
     super(props);
+
+    axios
+      .get(this.props.endpoint)
+      .then(res => {
+        obj = toNodesAndEdges(res);
+        this.setState({
+          nodes: obj.nodes,
+          edges: obj.edges
+        });
+        console.log(`project data gotten.`);
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
+  toNodesAndEdges(data) {
+    //TODO. data is an array of the project's hierarchy.
+  }
+
   render() {
+    //TODO replace this
     const taskNodes = [
       { id: '1', label: 'Design mockup for UI', color: '#e04141' },
       {
