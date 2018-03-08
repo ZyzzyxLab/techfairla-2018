@@ -12,22 +12,20 @@ import TaskView from './views/TaskView';
 import Project from './views/ProjectView';
 import Login from './views/LoginView';
 import ApolloExample from './views/ApolloExample';
-
-const Home = () => (
-  <p className="App-intro">
-    To get started, edit <code>src/App.js</code> and save to reload.
-  </p>
-);
+import ProjectOwnerView from './views/ProjectOwnerView';
+const Home = () => <p className="App-intro">TechFair LA Hackathon Project</p>;
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header />
+        <br />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/project" component={Project} />
           <Route path="/taskView" component={TaskView} />
+          <Route path="/projectOwnerView" component={ProjectOwnerView} />
           <Route path="/apollo-example" component={ApolloExample} />
           <Route path="/login" component={Login} />
         </Switch>

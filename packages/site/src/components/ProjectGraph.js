@@ -25,7 +25,8 @@ class ProjectGraph extends React.Component {
     };
     var events = {
       select: function(event) {
-        var { taskID, edges } = event;
+        var { nodes, edges } = event;
+        let taskID = nodes;
         // TODO: Do when onclick on the nodes id
         alert('clicked on taskID: ' + taskID);
       }

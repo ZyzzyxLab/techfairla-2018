@@ -5,7 +5,7 @@ import '../App.css';
 import ProjectGraph from '../components/ProjectGraph';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
-const ReactGridLayout = require('react-grid-layout');
+import ReactGridLayout from 'react-grid-layout';
 class ProjectView extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +34,6 @@ class ProjectView extends Component {
       { from: 2, to: 6 },
       { from: 4, to: 6 },
       { from: 3, to: 6 },
-
       { from: 5, to: 6 }
     ];
 
@@ -44,7 +43,12 @@ class ProjectView extends Component {
     ];
     return (
       <div>
+        <br />
+        <br />
+        <br />
+        <br />
         <h1>Wilson's project tree</h1>
+
         <ReactGridLayout
           className="layout"
           layout={layout}

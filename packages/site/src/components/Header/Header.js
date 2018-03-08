@@ -7,7 +7,12 @@ import { Link, NavLink } from 'react-router-dom';
 const Header = () => (
   <header className="App-header">
     <img src={logo} className="App-logo" alt="logo" />
-    <h1 className="App-title">Welcome to React</h1>
+    <br />
+    <br />
+    <h1 className="App-title">
+      <font color="white">React</font>
+    </h1>
+
     <NavLink to="/" activeClassName="active-nav">
       Home
     </NavLink>
@@ -19,8 +24,18 @@ const Header = () => (
     <NavLink to="/apollo-example" activeClassName="active-nav">
       Apollo Example
     </NavLink>
+    <NavLink to="/projectOwnerView" activeClassName="active-nav">
+      projectOwnerView
+    </NavLink>
+
     <br />
+
     <Link to="/login">Login</Link>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </header>
 );
 
