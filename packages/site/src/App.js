@@ -8,6 +8,7 @@ import { Route, Switch } from 'react-router-dom';
 // import moment from 'moment';
 
 import Header from './components/Header';
+import TaskView from './views/TaskView';
 import Project from './views/ProjectView';
 import Login from './views/LoginView';
 import ApolloExample from './views/ApolloExample';
@@ -26,6 +27,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/project" component={Project} />
+          <Route path="/taskView" component={TaskView} />
           <Route path="/apollo-example" component={ApolloExample} />
           <Route path="/login" component={Login} />
         </Switch>
