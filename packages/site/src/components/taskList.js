@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Cell, Column } from '@blueprintjs/table';
 
-
 //import CSS
 
 class TaskList extends Component {
@@ -44,4 +43,3 @@ class TaskList extends Component {
 }
 
 export default TaskList;
-
