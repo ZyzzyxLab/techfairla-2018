@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import '../App.css';
-import TaskList from '../components/taskList';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import { graphql } from 'react-apollo';

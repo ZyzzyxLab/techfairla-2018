@@ -61,8 +61,8 @@ class ProjectView extends Component {
               <p>blablabla </p>
               <p>
                 <blockquote>
-                  We want to build this ting But u gotta sign an NDA if u wanna
-                  know more.
+                  We want to build this thing that integrates dog owners with
+                  dog lovers.
                 </blockquote>
               </p>
             </div>
