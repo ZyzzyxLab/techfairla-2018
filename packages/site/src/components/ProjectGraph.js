@@ -1,24 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../index.css';
-import Graph from 'react-graph-vis';
-//const Graph = require('react-graph-vis').default;
+var Graph = require('react-graph-vis');
 
 class ProjectGraph extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      graph: { nodes: this.props.nodes, edges: this.props.edges }
+    this.state.graph = {
+      nodes: this.props.nodes,
+      edges: this.props.edges
     };
   }
 
   componentDidMount() {}
 
   componentWillUnmount() {}
-
   render() {
-    const { nodes, edges } = this.props;
-    const graph = { nodes, edges };
     var options = {
       layout: {
         hierarchical: true
@@ -27,17 +24,11 @@ class ProjectGraph extends React.Component {
         color: '#000000'
       }
     };
-    const events = {
+    var events = {
       select: function(event) {
-        var { nodes, edges } = event;
+        var { taskID, edges } = event;
         // TODO: Do when onclick on the nodes id
-        let taskID = nodes;
-        if (taskID != '')
-          alert(
-            'clicked on taskID: ' +
-              taskID +
-              '. TODO: REDIRECT TO THE TASKVIEW IF PUBLIC.'
-          );
+        alert('clicked on taskID: ' + taskID);
       }
     };
     return (
