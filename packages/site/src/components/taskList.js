@@ -11,17 +11,23 @@ class TaskList extends React.PureComponent {
 
     this.state = {
       items: this.props.items, // TODO: PASS THIS AS A PROP
+      handleClick: id => {
+        //TODO: REDRECT TO TASKVIEW.
+        alert('REDIRECT TO ID: ' + id);
+        console.log('redirected ');
+      },
 
       newCounter: 0
     };
   }
 
   render() {
+    //TODO: onClick here doesn't work.
     return (
       <div>
         <ReactGridLayout
           className="layout"
-          cols={6}
+          cols={8}
           rowHeight={30}
           width={1200}
         >
@@ -31,11 +37,12 @@ class TaskList extends React.PureComponent {
                 style={{ 'background-color': 'coral' }}
                 key={index.toString()}
                 data-grid={{
-                  x: (index * 2) % 6,
-                  y: Math.floor(index * 2 / 6),
+                  x: (index * 2) % 8,
+                  y: Math.floor(index * 2 / 8),
                   w: 1,
                   h: 1
                 }}
+                onClick={index => this.state.handleClick(index)}
               >
                 {name}
               </div>
