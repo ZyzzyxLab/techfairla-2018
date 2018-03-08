@@ -19,28 +19,27 @@ const getRandomColor = function() {
 class ProjectView extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: []
-    };
-    this.loadDataFromServer = this.loadDataFromServer.bind(this);
-  }
 
-  loadDataFromServer() {
     axios
-      .get(this.props.url) //Pass in URL
+      .get(this.props.endpoint)
       .then(res => {
-        this.setState({ data: res.data });
+        obj = toNodesAndEdges(res);
+        this.setState({
+          nodes: obj.nodes,
+          edges: obj.edges
+        });
+        console.log(`project data gotten.`);
+      })
+      .catch(err => {
+        console.error(err);
       });
   }
-
-  componentDidMount() {
-    this.loadDataFromServer();
-    setInterval(this.loadDataFromServer, 2000);
+  toNodesAndEdges(data) {
+    //TODO. data is an array of the project's hierarchy.
   }
 
   render() {
-    //const taskNodes = this.state.data.map((proj)
-    //=> ({id: proj._id, label: proj.description, color: getColor()}))
+    //TODO replace this
     const taskNodes = [
       { id: '1', label: 'Design mockup for UI', color: '#e04141' },
       {
@@ -82,7 +81,7 @@ class ProjectView extends Component {
           className="layout"
           layout={layout}
           cols={2}
-          rowHeight={30}
+          rowHeight={60}
           width={1200}
         >
           <div key="a">

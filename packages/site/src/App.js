@@ -14,6 +14,7 @@ import TaskRegisterView from './views/taskRegisterView';
 import Login from './views/LoginView';
 import ApolloExample from './views/ApolloExample';
 import ProjectOwnerView from './views/ProjectOwnerView';
+import MyProjectsView from './views/MyProjectsView';
 import TaskView from './views/TaskView';
 import TreeView from './views/TreeView';
 
@@ -37,6 +38,7 @@ class App extends Component {
           <Route path="/task-register" component={TaskRegisterView} />
           <Route path="/project-register" component={TreeView} />
           <Route path="/login" component={Login} />
+          <Route path="/myprojects" component={MyProjectsView} />
           <Route path="/taskView" component={TaskView} />
         </Switch>
       </div>

@@ -10,7 +10,7 @@ import axios from 'axios';
 //import { Button, Collapse, Switch } from '@blueprintjs/core';
 //collapsable contact details:
 
-class TaskView extends Component<{}, ICollapseExampleState> {
+class TaskView extends Component {
   constructor(props) {
     super(props);
     this.state = {

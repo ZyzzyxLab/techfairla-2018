@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Button, Input } from 'antd';
 import { Button } from 'react-bootstrap';
-import axios from 'axios';
+import { axios } from 'axios';
 
 const buttonStyle = function(isPrivate) {
   if (isPrivate) return { 'background-color': 'red' };
