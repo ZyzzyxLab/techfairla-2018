@@ -16,22 +16,27 @@ const Header = () => (
     <NavLink to="/home" activeClassName="active-nav">
       Home
     </NavLink>
-    <br />
+    <span>" "</span>
     <NavLink to="/project" activeClassName="active-nav">
       Project Graph
     </NavLink>
-    <br />
+    <span>" "</span>
     <NavLink to="/apollo-example" activeClassName="active-nav">
       Apollo Example
     </NavLink>
+    <span>" "</span>
     <NavLink to="/projectOwnerView" activeClassName="active-nav">
       projectOwnerView
     </NavLink>
+    <span>" "</span>
     <NavLink to="/marketplace" activeClassName="active-nav">
       marketplace
     </NavLink>
-
-    <br />
+    <span>" "</span>
+    <NavLink to="/myprojects" activeClassName="active-nav">
+      myprojects
+    </NavLink>
+    <span>" "</span>
 
     <Link to="/login">Login</Link>
   </header>

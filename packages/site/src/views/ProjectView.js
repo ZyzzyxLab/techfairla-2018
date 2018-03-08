@@ -49,7 +49,7 @@ class ProjectView extends Component {
           className="layout"
           layout={layout}
           cols={2}
-          rowHeight={30}
+          rowHeight={60}
           width={1200}
         >
           <div key="a">
