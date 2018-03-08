@@ -15,6 +15,7 @@ import Login from './views/LoginView';
 import ApolloExample from './views/ApolloExample';
 import ProjectOwnerView from './views/ProjectOwnerView';
 import TaskView from './views/TaskView';
+import TreeView from './views/TreeView';
 
 const Home = () => <p className="App-intro">TechFair LA Hackathon Project</p>;
 
@@ -34,6 +35,7 @@ class App extends Component {
           <Route path="/projectOwnerView" component={ProjectOwnerView} />
           <Route path="/apollo-example" component={ApolloExample} />
           <Route path="/task-register" component={TaskRegisterView} />
+          <Route path="/project-register" component={TreeView} />
           <Route path="/login" component={Login} />
           <Route path="/taskView" component={TaskView} />
         </Switch>

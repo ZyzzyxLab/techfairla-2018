@@ -90,6 +90,8 @@ class TaskRegister extends React.Component {
         >
           {this.state.isPrivate ? 'Private' : 'Public'}
         </button>
+
+        <input type="submit" />
       </form>
 
       // if (this.state.checked) {

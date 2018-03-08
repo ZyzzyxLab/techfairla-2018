@@ -6,11 +6,41 @@ import ProjectGraph from '../components/ProjectGraph';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import ReactGridLayout from 'react-grid-layout';
+import axios from 'axios';
+const getRandomColor = function() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
 class ProjectView extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      data: []
+    };
+    this.loadDataFromServer = this.loadDataFromServer.bind(this);
   }
+
+  loadDataFromServer() {
+    axios
+      .get(this.props.url) //Pass in URL
+      .then(res => {
+        this.setState({ data: res.data });
+      });
+  }
+
+  componentDidMount() {
+    this.loadDataFromServer();
+    setInterval(this.loadDataFromServer, 2000);
+  }
+
   render() {
+    //const taskNodes = this.state.data.map((proj)
+    //=> ({id: proj._id, label: proj.description, color: getColor()}))
     const taskNodes = [
       { id: '1', label: 'Design mockup for UI', color: '#e04141' },
       {
@@ -28,6 +58,9 @@ class ProjectView extends Component {
       { id: '6', label: 'Form a basic MVP working website' }
     ];
     //Connections between tasks:
+    //const taskEdges = this.state.data.map((proj) => proj.childNode && proj.childNode.map(
+    // (child) => ({from: proj._id, to: child._id})));
+
     const taskEdges = [
       { from: 1, to: 2 },
       { from: 1, to: 3 },

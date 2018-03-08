@@ -8,7 +8,6 @@ import _ from 'lodash';
 class TaskList extends React.PureComponent {
   constructor(props) {
     super(props);
-
     this.state = {
       items: this.props.items, // TODO: PASS THIS AS A PROP
       handleClick: id => {

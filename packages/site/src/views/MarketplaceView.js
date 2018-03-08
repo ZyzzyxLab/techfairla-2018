@@ -2,15 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../index.css';
 import TaskList from '../components/TaskList';
-
+import axios from 'axios';
 class MarketplaceView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      data: [],
       onLayoutChange: layout => {
         return;
       }
     };
+    this.loadDataFromServer = this.loadDataFromServer.bind(this);
+  }
+
+  loadDataFromServer() {
+    axios
+      .get(this.props.url) //Pass in URL
+      .then(res => {
+        this.setState({ data: res.data });
+      });
+  }
+
+  componentDidMount() {
+    this.loadDataFromServer();
+    setInterval(this.loadDataFromServer, 2000);
   }
 
   render() {

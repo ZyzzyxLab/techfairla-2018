@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../index.css';
-import CreateProjectGraph from '../components/CreateProjectGraph';
+import { TreeView } from 'react-treeview';
 
-class MarketplaceView extends React.Component {
+class createProjectView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,10 +18,10 @@ class MarketplaceView extends React.Component {
       <div>
         <h2> Create a project </h2>
         <h4> Click on the circle to get started. </h4>
-        <CreateProjectGraph />
+        <Tree />
       </div>
     );
   }
 }
 
-export default MarketplaceView;
+export default createProjectView;

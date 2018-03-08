@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import logo from '../logo.svg';
 import '../App.css';
-
+import axios from 'axios';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import ReactGridLayout from 'react-grid-layout';
@@ -13,13 +13,28 @@ class ProjectOwnerView extends Component<{}, ICollapseExampleState> {
   constructor(props) {
     super(props);
     this.state = {
+      //projects: [],
       projects: [
         'Project 1',
         'Project 2',
         'Project 3',
         'Project 4'
       ] /*props.project*/
-    }; //TODO: GRAPHQL integration.
+    };
+    this.loadDataFromServer = this.loadDataFromServer.bind(this);
+  }
+
+  loadDataFromServer() {
+    axios
+      .get(this.props.url) //Pass in URL
+      .then(res => {
+        this.setState({ projects: res.project });
+      });
+  }
+
+  componentDidMount() {
+    this.loadDataFromServer();
+    setInterval(this.loadDataFromServer, 2000);
   }
 
   render() {

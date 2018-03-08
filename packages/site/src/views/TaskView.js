@@ -6,6 +6,7 @@ import '../App.css';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import ReactGridLayout from 'react-grid-layout';
+import axios from 'axios';
 //import { Button, Collapse, Switch } from '@blueprintjs/core';
 //collapsable contact details:
 
@@ -13,14 +14,23 @@ class TaskView extends Component<{}, ICollapseExampleState> {
   constructor(props) {
     super(props);
     this.state = {
-      taskname: 'HELP ME CODE MY REACT FRONTEND' /*props.project*/
-      /*  projects: [
-        'Project 1',
-        'Project 2',
-        'Project 3',
-        'Project 4'
-    ] */
-    }; //TODO: GRAPHQL integration.
+      task: []
+    };
+    var { task } = this.state;
+    this.loadDataFromServer = this.loadDataFromServer.bind(this);
+  }
+
+  loadDataFromServer() {
+    axios
+      .get(this.props.url) //Pass in URL
+      .then(res => {
+        this.setState({ data: res.data });
+      });
+  }
+
+  componentDidMount() {
+    this.loadDataFromServer();
+    setInterval(this.loadDataFromServer, 2000);
   }
 
   render() {
@@ -31,7 +41,7 @@ class TaskView extends Component<{}, ICollapseExampleState> {
 
     return (
       <div>
-        <h1> Taskname: {this.state.taskname}</h1>
+        <h1> Taskname: {'task.title'}</h1>
 
         <ReactGridLayout
           className="layout"
@@ -42,36 +52,16 @@ class TaskView extends Component<{}, ICollapseExampleState> {
         >
           <div key="profilecard">
             <div class="pt-card .pt-elevation-4">
-              <h3> about the creator </h3>
-              <h4> Hanifa Harjani </h4>
-              <p class="title">CEO & Founder, Example</p>
-              <p>Hanifa University</p>
-
-              <a href="#">
-                <i class="fa fa-dribbble" />
-              </a>
-              <a href="#">
-                <i class="fa fa-twitter" />
-              </a>
-              <a href="#">
-                <i class="fa fa-linkedin" />
-              </a>
-              <a href="#">
-                <i class="fa fa-facebook" />
-              </a>
-            </div>
-            <div class="pt-card .pt-elevation-4">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec dapibus et mauris, vitae dictum metus.
-              </p>
+              <h3> Task Description: </h3>
+              <p class="title">task.description</p>
             </div>
           </div>
+
           <div key="taskinfo">
             <h3> Monetary reward</h3>
-            <p>$ 5.00 </p>
+            <p>task.reward</p>
             <h3> Expiry date</h3>
-            <p>$ 5th December </p>
+            <p>task.deadline</p>
             <h3> Required expertise</h3>
             <p> PHP LAMP STACK </p>
             <h2> PUBLIC</h2>
