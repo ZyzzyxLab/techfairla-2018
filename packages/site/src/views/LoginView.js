@@ -8,6 +8,8 @@ import * as BluePrint from '@blueprintjs/core';
 // import { Query } from 'react-apollo';
 // import moment from 'moment';
 
+import MarketplaceView from './MarketplaceView';
+
 const Home = () => (
   <p className="App-intro">
     To get started, edit <code>src/App.js</code> and save to reload.
@@ -19,6 +21,7 @@ class Login extends Component {
     return (
       <div class="pt-navbar-group pt-align-left">
         <button
+          onClick={MarketplaceView.render}
           type="button"
           class="pt-button pt-icon-log-in pt-large pt-intent-primary pt-align-left"
         >

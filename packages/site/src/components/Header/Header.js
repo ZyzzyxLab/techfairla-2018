@@ -27,20 +27,13 @@ const Header = () => (
     <NavLink to="/projectOwnerView" activeClassName="active-nav">
       projectOwnerView
     </NavLink>
+    <NavLink to="/marketplace" activeClassName="active-nav">
+      marketplace
+    </NavLink>
 
     <br />
 
     <Link to="/login">Login</Link>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
   </header>
 );
 

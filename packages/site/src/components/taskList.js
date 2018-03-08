@@ -1,42 +1,54 @@
-import React, { Component } from 'react';
-import { Table, Cell, Column } from '@blueprintjs/table';
+import React from 'react';
+import ReactGridLayout from 'react-grid-layout';
+import _ from 'lodash';
 
-//import CSS
-
-class TaskList extends Component {
+/**
+ * This layout demonstrates how to use a grid with a dynamic number of elements.
+ */
+class TaskList extends React.PureComponent {
   constructor(props) {
     super(props);
+
     this.state = {
-      taskData: {
-        description: 'Hello Task',
-        reward: 20
+      items: this.props.items, // TODO: PASS THIS AS A PROP
+      handleClick: id => {
+        //TODO: REDRECT TO TASKVIEW.
+        alert('REDIRECT TO ID: ' + id);
+        console.log('redirected ');
       },
-      projectData: {
-        name: 'Hello Project'
-      }
+
+      newCounter: 0
     };
   }
+
   render() {
+    //TODO: onClick here doesn't work.
     return (
       <div>
-        <div className="projectList">
-          <Table numRows={1}>
-            <Column name="Project Name">
-              {' '}
-              {this.state.taskData.description}
-            </Column>
-          </Table>
-        </div>
-
-        <div className="privateTask">
-          <Table numRows={1}>
-            <Column name="Task Description">
-              {' '}
-              {this.state.taskData.description}
-            </Column>
-            <Column name="Reward"> {this.state.taskData.reward}</Column>
-          </Table>
-        </div>
+        <ReactGridLayout
+          className="layout"
+          cols={8}
+          rowHeight={30}
+          width={1200}
+        >
+          {this.state.items.map(function(name, index) {
+            return (
+              <div
+                style={{ 'background-color': 'coral' }}
+                key={index.toString()}
+                data-grid={{
+                  x: (index * 2) % 8,
+                  y: Math.floor(index * 2 / 8),
+                  w: 1,
+                  h: 1
+                }}
+                onClick={index => this.state.handleClick(index)}
+              >
+                {name}
+              </div>
+            );
+          })}
+        </ReactGridLayout>
       </div>
     );
   }
