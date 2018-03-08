@@ -40,7 +40,14 @@ class ProjectGraph extends React.Component {
           );
       }
     };
-    return <Graph graph={this.state.graph} options={options} events={events} />;
+    return (
+      <Graph
+        graph={this.state.graph}
+        options={options}
+        events={events}
+        style={{ height: '1000px' }}
+      />
+    );
   }
 }
 
