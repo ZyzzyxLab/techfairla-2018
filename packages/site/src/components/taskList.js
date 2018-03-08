@@ -21,7 +21,7 @@ class TaskList extends React.PureComponent {
     axios
       .get(this.props.endpoint)
       .then(res => {
-        this.setState({ data: res }); //if this doesn't show up,  do var that = this;
+        this.setState({ items: res }); //if this doesn't show up,  do var that = this;
         console.log(`Public task data gotten.`);
       })
       .catch(err => {

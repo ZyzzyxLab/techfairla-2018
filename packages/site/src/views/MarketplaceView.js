@@ -9,27 +9,19 @@ class MarketplaceView extends React.Component {
     this.state = {
       onLayoutChange: layout => {
         return;
-      }
+      },
+      endpoint: 'TODO CHANGE THIS TO REST ENDPOINT'
     };
   }
 
   render() {
-    const tasks = [
-      'task 1',
-      'task 2',
-      'task 3',
-      'task 4',
-      'task 5',
-      ' task 6',
-      "Hanif's task"
-    ]; // TODO: REPLACE THIS
     const thisColor = 'coral';
     return (
       <div>
         <h2> Projects & Tasks Marketplace </h2>
         <TaskList
           onLayoutChange={this.state.onLayoutChange}
-          items={tasks}
+          endpoint={this.state.endpoint}
           color={thisColor}
         />{' '}
         //trying to pass color. Can't do it? Go to tasklist.

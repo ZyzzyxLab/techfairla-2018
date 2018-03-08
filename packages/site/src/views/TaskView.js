@@ -9,7 +9,7 @@ import ReactGridLayout from 'react-grid-layout';
 //import { Button, Collapse, Switch } from '@blueprintjs/core';
 //collapsable contact details:
 
-class TaskView extends Component<{}, ICollapseExampleState> {
+class TaskView extends Component {
   constructor(props) {
     super(props);
     this.state = {
