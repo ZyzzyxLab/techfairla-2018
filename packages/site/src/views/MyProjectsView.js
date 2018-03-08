@@ -24,10 +24,16 @@ class MyProjectsView extends React.Component {
       "my Hanif's task"
     ]; // TODO: REPLACE THIS
     //TODO: Attach each task to a link to the taskview.
+    const thisColor = 'blue';
     return (
       <div>
-        <h2> Projects & Tasks Marketplace </h2>
-        <TaskList onLayoutChange={this.state.onLayoutChange} items={tasks} />
+        <h2> My Projects </h2>
+        <TaskList
+          onLayoutChange={this.state.onLayoutChange}
+          items={tasks}
+          color={thisColor}
+        />{' '}
+        //trying to pass color. Can't do it? Go to tasklist.
       </div>
     );
   }

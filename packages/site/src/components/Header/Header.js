@@ -37,6 +37,10 @@ const Header = () => (
       myprojects
     </NavLink>
     <span>" "</span>
+    <NavLink to="/taskView" activeClassName="active-nav">
+      TaskView
+    </NavLink>
+    <span>" "</span>
 
     <Link to="/login">Login</Link>
   </header>

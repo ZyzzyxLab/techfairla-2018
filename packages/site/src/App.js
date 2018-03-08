@@ -10,10 +10,12 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import MarketplaceView from './views/MarketplaceView';
 import Project from './views/ProjectView';
+import TaskRegisterView from './views/taskRegisterView';
 import Login from './views/LoginView';
 import ApolloExample from './views/ApolloExample';
 import ProjectOwnerView from './views/ProjectOwnerView';
 import MyProjectsView from './views/MyProjectsView';
+import TaskView from './views/TaskView';
 
 const Home = () => <p className="App-intro">TechFair LA Hackathon Project</p>;
 
@@ -32,8 +34,10 @@ class App extends Component {
           <Route path="/marketplace" component={MarketplaceView} />
           <Route path="/projectOwnerView" component={ProjectOwnerView} />
           <Route path="/apollo-example" component={ApolloExample} />
+          <Route path="/task-register" component={TaskRegisterView} />
           <Route path="/login" component={Login} />
           <Route path="/myprojects" component={MyProjectsView} />
+          <Route path="/taskView" component={TaskView} />
         </Switch>
       </div>
     );

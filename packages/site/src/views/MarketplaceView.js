@@ -23,10 +23,16 @@ class MarketplaceView extends React.Component {
       ' task 6',
       "Hanif's task"
     ]; // TODO: REPLACE THIS
+    const thisColor = 'coral';
     return (
       <div>
         <h2> Projects & Tasks Marketplace </h2>
-        <TaskList onLayoutChange={this.state.onLayoutChange} items={tasks} />
+        <TaskList
+          onLayoutChange={this.state.onLayoutChange}
+          items={tasks}
+          color={thisColor}
+        />{' '}
+        //trying to pass color. Can't do it? Go to tasklist.
       </div>
     );
   }

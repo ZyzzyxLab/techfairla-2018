@@ -1,72 +1,86 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import logo from '../logo.svg';
 import '../App.css';
+
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
-import { graphql } from 'react-apollo';
-// import gql from 'graphql-tag'
+import ReactGridLayout from 'react-grid-layout';
+//import { Button, Collapse, Switch } from '@blueprintjs/core';
+//collapsable contact details:
 
-// const TaskQuery = gql`
-//   query TaskQuery {
-//     Task(private: true) {
-//       description
-//       reward
-//     }
-//   }
-// `;
-
-// const ProjectQuery = gql`
-//   query ProjectQuery {
-//     Project() {
-//       description
-//     }
-//   }
-// `;
-
-// //Get Task data from graphQL
-// const GET.TASK = gql`
-//   {
-//     task {
-//       //Whatever data
-//     }
-//   }
-// `;
-
-// //Get Project data from GraphQL
-// const GET.PROJECT = gpl`
-//   {
-//     project{
-//       //whatever data
-//     }
-//   }
-// `;
-
-class TaskView extends Component {
+class TaskView extends Component<{}, ICollapseExampleState> {
   constructor(props) {
     super(props);
+    this.state = {
+      taskname: 'HELP ME CODE MY REACT FRONTEND' /*props.project*/
+      /*  projects: [
+        'Project 1',
+        'Project 2',
+        'Project 3',
+        'Project 4'
+    ] */
+    }; //TODO: GRAPHQL integration.
   }
-
-  // static propTypes = {
-  //   data: React.PropTypes.shape({
-  //     loading: React.PropTypes.bool,
-  //     error: React.PropTypes.object,
-  //     TaskQuery: React.PropTypes.object,
-  //     ProjectQuery: React.PropTypes.object,
-  //   }).isRequired,
-  // }
 
   render() {
-    // if (this.props.data.loading) {
-    //    return (<div>Loading</div>)
-    //  }
+    var layout = [
+      { i: 'profilecard', x: 0, y: 0, w: 1, h: 3, static: true },
+      { i: 'taskinfo', x: 1, y: 0, w: 1, h: 3, static: true }
+    ];
 
-    //  if (this.props.data.error) {
-    //    console.log(this.props.data.error)
-    //    return (<div>An unexpected error occurred</div>)
-    //  }
+    return (
+      <div>
+        <h1> Taskname: {this.state.taskname}</h1>
 
-    return <TaskList />;
+        <ReactGridLayout
+          className="layout"
+          layout={layout}
+          cols={2}
+          rowHeight={60}
+          width={1200}
+        >
+          <div key="profilecard">
+            <div class="pt-card .pt-elevation-4">
+              <h3> about the creator </h3>
+              <h4> Hanifa Harjani </h4>
+              <p class="title">CEO & Founder, Example</p>
+              <p>Hanifa University</p>
+
+              <a href="#">
+                <i class="fa fa-dribbble" />
+              </a>
+              <a href="#">
+                <i class="fa fa-twitter" />
+              </a>
+              <a href="#">
+                <i class="fa fa-linkedin" />
+              </a>
+              <a href="#">
+                <i class="fa fa-facebook" />
+              </a>
+            </div>
+            <div class="pt-card .pt-elevation-4">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec dapibus et mauris, vitae dictum metus.
+              </p>
+            </div>
+          </div>
+          <div key="taskinfo">
+            <h3> Monetary reward</h3>
+            <p>$ 5.00 </p>
+            <h3> Expiry date</h3>
+            <p>$ 5th December </p>
+            <h3> Required expertise</h3>
+            <p> PHP LAMP STACK </p>
+            <h2> PUBLIC</h2>
+          </div>
+        </ReactGridLayout>
+      </div>
+    );
   }
+  //TODO: WIRE THIS UP TO DB LATER.
 }
 
 export default TaskView;

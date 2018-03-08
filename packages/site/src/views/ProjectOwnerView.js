@@ -6,7 +6,7 @@ import '../App.css';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import ReactGridLayout from 'react-grid-layout';
-import { Button, Collapse, Switch } from '@blueprintjs/core';
+//import { Button, Collapse, Switch } from '@blueprintjs/core';
 //collapsable contact details:
 
 class ProjectOwnerView extends Component<{}, ICollapseExampleState> {
