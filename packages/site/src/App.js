@@ -10,6 +10,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import TaskView from './views/TaskView';
 import Project from './views/ProjectView';
+import TaskRegisterView from './views/taskRegisterView';
 import Login from './views/LoginView';
 import ApolloExample from './views/ApolloExample';
 import ProjectOwnerView from './views/ProjectOwnerView';
@@ -31,6 +32,7 @@ class App extends Component {
           <Route path="/taskView" component={TaskView} />
           <Route path="/projectOwnerView" component={ProjectOwnerView} />
           <Route path="/apollo-example" component={ApolloExample} />
+          <Route path="/task-register" component={TaskRegisterView} />
           <Route path="/login" component={Login} />
         </Switch>
       </div>
